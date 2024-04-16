@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaTrash } from "react-icons/fa6";
 
 
 function Content() {
@@ -24,17 +25,18 @@ function Content() {
   return (
     <div>
       <input
+      className='todo-input'
         type="text"
         placeholder="Enter a new task"
         value={inputValue}
         onChange={handleInputChange}
       />
-      <button onClick={handleAddTodo}>Add</button>
-      <ul>
+      <button className='add-btn' onClick={handleAddTodo}>Add</button>
+      <ul >
         {todos.map((todo, index) => (
-          <li key={index}>
+          <li key={index} className='todo-item'>
             {todo}
-            <button onClick={() => handleDeleteTodo(index)}>Delete</button>
+            <button className='delete-btn' onClick={() => handleDeleteTodo(index)}><FaTrash /></button>
           </li>
         ))}
       </ul>
